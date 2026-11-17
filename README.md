@@ -1,6 +1,7 @@
 # Loan Default Risk Dashboard
 
-An interactive Power BI dashboard that analyzes default risk across **32,581 loans**. The data was cleaned in Power Query and the calculations were built in DAX.
+An interactive Power BI dashboard that analyzes default risk across **32,581 loans**. The data was prepared with SQL and Power Query, and the calculations were 
+built in DAX.
 
 <img width="1408" height="788" alt="image" src="https://github.com/user-attachments/assets/30bf22fb-1e44-46a5-810f-5d7697aa71f1" />
 
@@ -10,11 +11,12 @@ To understand which loan and borrower characteristics (loan grade, loan purpose,
 ##  Tools Used
 | Tool | Purpose |
 |---|---|
+| SQL | Data exploration and preparation |
 | Power Query | Data cleaning and transformation |
 | Power BI | Dashboard design and visualization |
 | DAX | Calculated columns and measures |
 
-## Dataset
+##  Dataset
 - **Source:** Credit Risk Dataset from Kaggle ([dataset link])
 - **Size:** 32,581 loan records
 - **Key fields:** loan grade, loan intent, loan amount, interest rate, borrower income, age, employment length, home ownership, credit history and loan status (default or non-default)
@@ -41,13 +43,24 @@ To understand which loan and borrower characteristics (loan grade, loan purpose,
 - **Loan status distribution:** share of defaulted vs non-defaulted loans
 - **Key Insights panel** summarizing the main findings
 
+## SQL Work
+The SQL analysis is organized into four scripts in the `sql/` folder:
+
+| File | Purpose |
+|---|---|
+| `01_Data_Quality_Checks.sql` | Checks the data for quality issues before analysis (e.g. missing values, duplicates, unusual values) |
+| `02_Exploratory_Data_Analysis.sql` | Explores the data and compares loans across borrower and loan characteristics |
+| `03_KPI_Analysis.sql` | Calculates the key metrics: total loans, defaulted loans, default rate and total loan amount |
+| `04_Default_Risk_Analysis.sql` | Analyzes default risk by loan grade, loan intent and income group |
+
+
 ##  Data Preparation (Power Query)
-- [Step 1: e.g. checked for missing values and handled them]
+- [Step 1: e.g. handled missing values]
 - [Step 2: e.g. corrected column data types]
 - [Step 3: e.g. renamed loan intent values to readable names]
-- [Step 4: e.g. removed duplicates or unrealistic values, if you did]
+- Created `Income Group` and `Income Group Sort` columns using DAX
 
-## DAX Used
+##  DAX Used
 **Income Group** (calculated column)
 ```dax
 Income Group = 
@@ -79,11 +92,17 @@ SWITCH(
 [paste your own Default Rate measure here]
 ```
 
-## Repository Files
+##  Repository Files
+- `sql/`: SQL scripts
+  - `01_Data_Quality_Checks.sql`
+  - `02_Exploratory_Data_Analysis.sql`
+  - `03_KPI_Analysis.sql`
+  - `04_Default_Risk_Analysis.sql`
 - `Loan_Default_Dashboard.pbix`: Power BI file
 - `dashboard.png`: dashboard screenshot
 - `credit_risk_dataset.csv`: source dataset (Kaggle)
 - `README.md`: project documentation
+
 
 ##  How to Open
 1. Download `Loan_Default_Dashboard.pbix`.
@@ -91,6 +110,7 @@ SWITCH(
 3. Use the filters on the left to explore the data.
 
 ##  What I Learned
+- Exploring and preparing data with SQL
 - Cleaning and transforming data in Power Query
 - Writing DAX calculated columns and measures
 - Sorting a text column with a helper sort column
@@ -100,3 +120,5 @@ SWITCH(
 ##  Author
 **R Janvi**
 B.Tech CSE (Data Science) 
+
+
