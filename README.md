@@ -2,7 +2,7 @@
 
 An interactive Power BI dashboard that analyzes default risk across **32,581 loans**. The data was cleaned in Power Query and the calculations were built in DAX.
 
-![Loan Default Risk Dashboard]<img width="1408" height="788" alt="image" src="https://github.com/user-attachments/assets/30bf22fb-1e44-46a5-810f-5d7697aa71f1" />
+<img width="1408" height="788" alt="image" src="https://github.com/user-attachments/assets/30bf22fb-1e44-46a5-810f-5d7697aa71f1" />
 
 ## Objective
 To understand which loan and borrower characteristics (loan grade, loan purpose, income, age and employment length) are linked to loan default, so that high-risk segments can be identified early.
